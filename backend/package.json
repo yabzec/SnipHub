@@ -9,7 +9,8 @@
     "dependencies": {
         "bcryptjs": "^3.0.3",
         "drizzle-orm": "^0.44.7",
-        "hono": "^4.10.7"
+        "hono": "^4.10.7",
+        "resend": "^6.5.2"
     },
     "devDependencies": {
         "@cloudflare/workers-types": "^4.20251126.0",
