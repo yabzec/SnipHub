@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { useAuthStore } from '@/store/useAuthStore';
+import Cookies from "js-cookie";
 
 export const api = axios.create({
     baseURL: process.env.NEXT_PUBLIC_API_URL,
@@ -9,7 +10,7 @@ export const api = axios.create({
 });
 
 api.interceptors.request.use((config) => {
-    const token = useAuthStore.getState().token;
+    const token = Cookies.get('sniphub_token');
     if (token) {
         config.headers.Authorization = `Bearer ${token}`;
     }
@@ -19,7 +20,8 @@ api.interceptors.request.use((config) => {
 api.interceptors.response.use(
     (response) => response,
     (error) => {
-        if (error.response?.status === 401) {
+        const isLoginRequest = error.config?.url?.includes('/auth/login');
+        if (error.response?.status === 401 && !isLoginRequest) {
             useAuthStore.getState().logout();
             window.location.href = '/login';
         }
