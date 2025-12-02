@@ -19,7 +19,7 @@ npx wrangler d1 execute [db-name] --remote --file=./drizzle/0000_*.sql
 ```json
 {
 	"$schema": "node_modules/wrangler/config-schema.json",
-	"name": "backend",
+	"name": "sniphub_backend",
 	"main": "src/index.ts",
 	"compatibility_date": "2025-11-26",
     "vars": {
@@ -46,9 +46,15 @@ NO_REPLY_EMAIL=onboarding@resend.dev
 ADMIN_EMAIL=[your-email]
 ```
 Resend is an email service with a free tier of 3000 mails/month, to get a key go to [resend.com](https://resend.com/).
+After you create an account you can add your domain for sending emails as [alias]@your-domain.com.
 
-This needs to be added to cloudflare after the worker creation
+This needs to be added to cloudflare
 ```bash
 npx wrangler secret put JWT_SECRET
 npx wrangler secret put RESEND_API_KEY
+```
+
+4. Deploy to cloudflare
+```bash
+npm run deploy
 ```
