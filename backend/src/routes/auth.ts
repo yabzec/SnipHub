@@ -105,7 +105,7 @@ auth.post('/login', async (c) => {
 
     const token = await sign({id: user.id, email: user.email}, c.env.JWT_SECRET);
 
-    return c.json({token, user: {id: user.id, email: user.email, firstName: user.firstName}});
+    return c.json({token, user: {id: user.id, email: user.email, username: user.username, firstName: user.firstName}});
 });
 
 export default auth;
