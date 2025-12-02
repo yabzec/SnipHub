@@ -58,3 +58,21 @@ npx wrangler secret put RESEND_API_KEY
 ```bash
 npm run deploy
 ```
+> **TIP**
+>
+> If you want to configure cloudflare automatic build you can do that in the worker setup.
+> 
+> You don't need to commit your wrangler.jsonc to the repo, you can use the `npm run create-build-files` command to generated it at build time.
+> 
+> Go to Cloudflare dash > Workers & Pages > [you-worker] > Settings and connect your worker to your repository, then:
+> - Build command -> `npm run create-build-files`
+> - Deploy command -> `npm run deploy`
+> - Root directory -> `backend`
+> - Watch path -> `backend/*`
+> 
+> Add also this env vars to the **build** setup:
+> - `ADMIN_EMAIL`
+> - `DATABASE_ID`
+> - `DATABASE_NAME`
+> - `FRONTEND_BASE_URL`
+> - `NO_REPLY_EMAIL`
