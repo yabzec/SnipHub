@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const wranglerPath = path.join(process.cwd(), 'wrangler-test.jsonc');
+const wranglerPath = path.join(process.cwd(), 'wrangler.jsonc');
 const wranglerConfigObject = {
     "$schema": "node_modules/wrangler/config-schema.json",
     "name": "sniphub_backend",
