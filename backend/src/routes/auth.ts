@@ -31,7 +31,7 @@ auth.post('/signup', async (c) => {
     try {
         await db.insert(schema.users).values({
             id: userId,
-            username: username || generateRandomUsername(),
+            username: username || await generateRandomUsername(),
             firstName,
             lastName,
             email,
