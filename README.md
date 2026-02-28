@@ -76,3 +76,6 @@ npm run deploy
 > - `DATABASE_NAME`
 > - `FRONTEND_BASE_URL`
 > - `NO_REPLY_EMAIL`
+
+## Tips
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/I3I61V3CIV)
